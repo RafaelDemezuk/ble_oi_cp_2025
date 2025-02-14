@@ -1,0 +1,13 @@
+{
+    "C_Cpp.intelliSenseEngine": "default",
+    "idf.espIdfPathWin": "C:\\Users\\rafae\\esp\\v5.3.1\\esp-idf",
+    "idf.toolsPathWin": "C:\\Users\\rafae\\.espressif",
+    "idf.flashType": "UART",
+    "idf.portWin": "COM5",
+    "idf.openOcdConfigs": [
+        "board/esp32-wrover-kit-3.3v.cfg"
+    ],
+    "files.associations": {
+        "cstdint": "c"
+    }
+}
