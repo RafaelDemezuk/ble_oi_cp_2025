@@ -755,6 +755,7 @@ void app_main(void)
     while(1){
         vTaskDelay(100 / portTICK_PERIOD_MS);
         if(global_string[0]!=0 && (strstr(global_string, "gravar") != NULL)){
+            vTaskDelay(10000 / portTICK_PERIOD_MS);
             strcpy(global_string, "300000000");
             esp_ble_gatts_send_indicate(spp_gatts_if, spp_conn_id,
                                                                 spp_handle_table[SPP_IDX_SPP_DATA_NTY_VAL],
@@ -762,10 +763,6 @@ void app_main(void)
         
             memset(global_string, 0, sizeof(global_string));
 
-            strcpy(my_string,"100");
-                        esp_ble_gatts_send_indicate(spp_gatts_if, spp_conn_id,
-                spp_handle_table[SPP_IDX_SPP_DATA_NTY_VAL],
-                strlen(my_string), (uint8_t *)my_string, false);
 
         }else if (global_string[0]!=0 && (strstr(global_string, "transmitir") != NULL)){
             ESP_LOGI(GATTS_TABLE_TAG, "Transmitindo...");
@@ -783,12 +780,6 @@ void app_main(void)
                 strlen(my_string), (uint8_t *)my_string, false);
 
             memset(global_string, 0, sizeof(global_string));
-
-            strcpy(my_string,"100");
-            
-            esp_ble_gatts_send_indicate(spp_gatts_if, spp_conn_id,
-                spp_handle_table[SPP_IDX_SPP_DATA_NTY_VAL],
-                strlen(my_string), (uint8_t *)my_string, false);
 
         }   
         
